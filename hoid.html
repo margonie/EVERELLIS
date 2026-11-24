@@ -17,16 +17,31 @@
   <body>
     <!-- NAVBAR -->
     <header class="navbar">
-      <div class="logo">REGNUM</div>
-
-      <nav>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><span>♛</span></div>
+        <div>
+          <div class="brand-name">EVERELLIS DE VALMONT</div>
+          <div class="brand-sub">ХААНТ УЛСЫН АЛБАН ЁСНЫ ЦАХИМ ХУУДАС</div>
+        </div>
+      </a>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Цэс нээх"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+      <nav id="navMenu">
         <a href="index.html">НҮҮР</a>
-        <a href="#about">ХОТЫН ТУХАЙ</a>
-        <a href="#history">ТҮҮХ</a>
-        <a href="#places">ҮЗЭСГЭЛЭНТ ГАЗАР</a>
-      </nav>
+        <a href="about.html" class="active">ХААНТ УЛС</a>
 
-      <div class="crown">♛</div>
+        <a href="map.html">ГАЗРЫН ЗУРАГ</a>
+        <a href="laws.html">ХУУЛЬ</a>
+        <a href="events.html">ЭВЕНТ</a>
+        <a href="account.html" class="active">ИРГЭНИЙ БҮРТГЭЛ</a>
+      </nav>
     </header>
 
     <!-- HERO -->
