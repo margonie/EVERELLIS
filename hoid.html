@@ -1,248 +1,232 @@
 <!doctype html>
 <html lang="mn">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>AUREVAYNE | Everellis De Valmont</title>
-
-    <link rel="stylesheet" href="css/city.css" />
-
-    <link
-      href="https://i.pinimg.com/736x/f6/20/96/f62096ee6e60136651196df62efbdc57.jpg"
-      rel="stylesheet"
-    />
+    <title>AUREVAYNE | Regnum Everellis</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #0b1016;
+        color: #dce4ec;
+        font-family: Georgia, serif;
+      }
+      header {
+        padding: 25px 8%;
+        border-bottom: 1px solid #536a80;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        color: #b8d1e6;
+        letter-spacing: 4px;
+      }
+      nav a {
+        color: #b7c7d7;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 12px;
+      }
+      .hero {
+        text-align: center;
+        padding: 110px 20px;
+        background: radial-gradient(#26394c, #0b1016 70%);
+      }
+      .hero small {
+        letter-spacing: 6px;
+        color: #9ebbd4;
+      }
+      h1 {
+        font-size: clamp(40px, 7vw, 75px);
+        letter-spacing: 8px;
+        color: #d0e5f6;
+        margin: 25px 0;
+      }
+      .subtitle {
+        letter-spacing: 4px;
+        color: #9ebbd4;
+      }
+      .line {
+        width: 100px;
+        height: 1px;
+        background: #9ebbd4;
+        margin: 30px auto;
+      }
+      .intro {
+        max-width: 700px;
+        margin: auto;
+        line-height: 2;
+        color: #c1cfdd;
+      }
+      .content {
+        max-width: 1000px;
+        margin: auto;
+        padding: 60px 25px;
+      }
+      section {
+        padding: 35px 0;
+        border-bottom: 1px solid #35495b;
+      }
+      h2 {
+        color: #b9d6ed;
+        letter-spacing: 3px;
+      }
+      p {
+        line-height: 2;
+        color: #bdcbd8;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 25px;
+      }
+      .card {
+        background: #16212c;
+        border: 1px solid #536a80;
+        padding: 25px;
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-7px);
+        border-color: #b9d6ed;
+      }
+      .card h3 {
+        color: #d0e5f6;
+      }
+      .back {
+        display: inline-block;
+        padding: 15px 25px;
+        border: 1px solid #9ebbd4;
+        color: #d0e5f6;
+        text-decoration: none;
+        margin-top: 30px;
+      }
+      .back:hover {
+        background: #9ebbd4;
+        color: #0b1016;
+      }
+      footer {
+        text-align: center;
+        padding: 35px;
+        border-top: 1px solid #35495b;
+        color: #9ebbd4;
+        letter-spacing: 3px;
+      }
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          gap: 20px;
+        }
+        nav a {
+          margin: 0 7px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          letter-spacing: 3px;
+        }
+      }
+    </style>
   </head>
-
   <body>
-    <!-- NAVBAR -->
-    <header class="navbar">
-      <a href="index.html" class="brand">
-        <div class="brand-icon"><span>♛</span></div>
-        <div>
-          <div class="brand-name">EVERELLIS DE VALMONT</div>
-          <div class="brand-sub">ХААНТ УЛСЫН АЛБАН ЁСНЫ ЦАХИМ ХУУДАС</div>
-        </div>
-      </a>
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        aria-label="Цэс нээх"
-        aria-expanded="false"
-        onclick="toggleMenu()"
-      >
-        ☰
-      </button>
-      <nav id="navMenu">
+    <header>
+      <div class="logo">REGNUM EVERELLIS</div>
+      <nav>
         <a href="index.html">НҮҮР</a>
-        <a href="about.html" class="active">ХААНТ УЛС</a>
-
         <a href="map.html">ГАЗРЫН ЗУРАГ</a>
-        <a href="laws.html">ХУУЛЬ</a>
-        <a href="events.html">ЭВЕНТ</a>
-        <a href="account.html" class="active">ИРГЭНИЙ БҮРТГЭЛ</a>
+        <a href="niislel.html">НИЙСЛЭЛ</a>
+        <a href="baruun.html">БАРУУН</a>
+        <a href="zuun.html">ЗҮҮН</a>
+        <a href="urd.html">ӨМНӨД</a>
       </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <span class="subtitle">THE ROYAL CAPITAL OF REGNUM</span>
-
-        <h1>ASTORIA</h1>
-
-        <div class="gold-line"></div>
-
-        <p>
-          Хаант улсын сүр хүч, соёл иргэншил, түүхийн өлгий болсон эрхэмсэг хот.
-        </p>
-
-        <a href="#about" class="explore-btn"> ХОТЫГ ТАНИН МЭДЭХ ↓ </a>
-      </div>
-
-      <div class="hero-bottom">
-        <span>EST. 1824</span>
-        <span>THE ROYAL CAPITAL</span>
-        <span>REGNUM EMPIRE</span>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about section" id="about">
-      <div class="section-label">01 — INTRODUCTION</div>
-
-      <div class="about-grid">
-        <div class="about-text">
-          <span class="gold-small">THE CITY OF GREATNESS</span>
-
-          <h2>ASTORIA<br /><i>Хотын танилцуулга</i></h2>
-
-          <div class="gold-line"></div>
-
-          <p>
-            Асториа хот нь REGNUM хаант улсын улс төр, эдийн засаг, соёл,
-            боловсролын төв юм. Тус хот нь эртний уламжлал болон орчин үеийн
-            хөгжлийг гайхалтай хослуулсан архитектур, өргөн уудам талбай, түүхэн
-            дурсгалт газруудаараа алдартай.
-          </p>
-
-          <p>
-            Хааны ордон, төрийн ордон, их сургууль, соёлын төвүүд байрладаг тус
-            хот нь улсын хөгжил цэцэглэлтийн бэлгэ тэмдэг билээ.
-          </p>
-        </div>
-
-        <div class="about-image">
-          <img
-            src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200"
-            alt="Astoria city"
-          />
-          <div class="image-caption">THE BEAUTY OF ASTORIA</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATISTICS -->
-    <section class="statistics">
-      <div class="stat">
-        <h2>2.4M</h2>
-        <p>ХҮН АМ</p>
-      </div>
-
-      <div class="stat">
-        <h2>1824</h2>
-        <p>БАЙГУУЛАГДСАН ОН</p>
-      </div>
-
-      <div class="stat">
-        <h2>850 KM²</h2>
-        <p>НУТАГ ДЭВСГЭР</p>
-      </div>
-
-      <div class="stat">
-        <h2>12</h2>
-        <p>ЗАХИРГААНЫ БҮС</p>
-      </div>
-    </section>
-
-    <!-- HISTORY -->
-    <section class="history section" id="history">
-      <div class="section-label">02 — OUR HISTORY</div>
-
-      <h2 class="section-title">ТҮҮХЭН ЗАМНАЛ</h2>
-
-      <p class="section-description">
-        Асториа хотын хөгжил, хувьсал, түүхэн үйл явдлууд.
+    <div class="hero">
+      <small>REGNUM EVERELLIS DE VALMONT</small>
+      <div class="line"></div>
+      <h1>AUREVAYNE</h1>
+      <div class="subtitle">АУРЕВЭЙН · ХОЙД БҮС</div>
+      <div class="line"></div>
+      <p class="intro">
+        Цаст уулс, эртний цайз, тэсвэр хатуужил, байгалийн баялгаараа алдартай
+        хойд бүсийн хот.
       </p>
+    </div>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <span>1824</span>
-          <h3>Хотын үндэс суурь</h3>
-          <p>Асториа хотын суурийг тавьж, анхны суурьшлын бүс байгуулагдав.</p>
-        </div>
+    <main class="content">
+      <section>
+        <h2>I. ХОТЫН ТҮҮХ</h2>
+        <p>
+          Ауревэйн нь хойд нутгийн уулсын дунд байгуулагдсан эртний хот юм.
+          Түүхэндээ уулчид, дархчууд, хамгаалагчдын нутаг байсаар ирсэн.
+        </p>
+      </section>
 
-        <div class="timeline-item">
-          <span>1850</span>
-          <h3>Нийслэл хот болов</h3>
-          <p>Хааны зарлигаар улсын нийслэл хэмээн тунхаглав.</p>
-        </div>
+      <section>
+        <h2>II. ГАЗАРЗҮЙН ОНЦЛОГ</h2>
+        <p>
+          Өндөр цаст уулс, мөсөн гол, хад асга бүхий байгалийн өвөрмөц
+          тогтоцтой. Хотын чулуун барилга, өндөр цамхгууд нь хойд нутгийн сүр
+          жавхланг илэрхийлдэг.
+        </p>
+      </section>
 
-        <div class="timeline-item">
-          <span>1920</span>
-          <h3>Их бүтээн байгуулалт</h3>
-          <p>Шинэ архитектур, зам тээвэр, худалдааны төвүүд хөгжиж эхлэв.</p>
-        </div>
-
-        <div class="timeline-item">
-          <span>2026</span>
-          <h3>Орчин үеийн Асториа</h3>
-          <p>
-            Олон улсын харилцаа, технологи, боловсролын төв болон хөгжиж байна.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- PLACES -->
-    <section class="places section" id="places">
-      <div class="section-label">03 — DISCOVER ASTORIA</div>
-
-      <h2 class="section-title">ОНЦЛОХ ГАЗРУУД</h2>
-
-      <div class="places-grid">
-        <div class="place-card">
-          <img
-            src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=900"
-          />
-          <div class="place-info">
-            <span>01 / ROYAL RESIDENCE</span>
-            <h3>Хааны ордон</h3>
-            <p>Хаант улсын сүр хүч, эрх мэдлийн бэлгэ тэмдэг.</p>
+      <section>
+        <h2>III. ЭДИЙН ЗАСАГ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>УУЛ УУРХАЙ</h3>
+            <p>Ашигт малтмал, үнэт чулуу, металл.</p>
+          </div>
+          <div class="card">
+            <h3>ДАРХАН УРЛАЛ</h3>
+            <p>Металл боловсруулалт, уламжлалт дархан.</p>
+          </div>
+          <div class="card">
+            <h3>МАЛ АЖ АХУЙ</h3>
+            <p>Хойд нутгийн уламжлалт мал аж ахуй.</p>
+          </div>
+          <div class="card">
+            <h3>ЭРЧИМ ХҮЧ</h3>
+            <p>Усан болон уулын эрчим хүчний нөөц.</p>
           </div>
         </div>
+      </section>
 
-        <div class="place-card">
-          <img
-            src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=900"
-          />
-          <div class="place-info">
-            <span>02 / ARCHITECTURE</span>
-            <h3>Төв талбай</h3>
-            <p>Хотын соёл, олон нийтийн амьдралын төв.</p>
-          </div>
-        </div>
+      <section>
+        <h2>IV. ХОТЫН БЭЛГЭДЭЛ</h2>
+        <p><b>Тэмдэг:</b> Мөнгөн чоно ба цаст уул.</p>
+        <p><b>Уриа:</b> “Argentum Lupus, Aeternus Mons”</p>
+      </section>
 
-        <div class="place-card">
-          <img
-            src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=900"
-          />
-          <div class="place-info">
-            <span>03 / CULTURE</span>
-            <h3>Соёлын ордон</h3>
-            <p>Урлаг, түүх, уламжлалыг хадгалсан төв.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <a href="map.html" class="back">← ГАЗРЫН ЗУРАГ РУУ БУЦАХ</a>
+    </main>
 
-    <!-- GALLERY -->
-    <section class="gallery section">
-      <div class="section-label">04 — CITY GALLERY</div>
+    <footer>REGNUM EVERELLIS DE VALMONT · AUREVAYNE</footer>
+    <div class="floating-stars"></div>
+    <script>
+      const starContainer = document.querySelector(".floating-stars");
 
-      <h2 class="section-title">ХОТЫН ӨНГӨ ТӨРХ</h2>
+      for (let i = 0; i < 45; i++) {
+        const star = document.createElement("span");
 
-      <div class="gallery-grid">
-        <img
-          src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=900"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=900"
-        />
-        <img
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=900"
-        />
-      </div>
-    </section>
+        star.className = "star";
+        star.innerHTML = "✦";
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-crown">♛</div>
+        star.style.left = Math.random() * 100 + "%";
+        star.style.animationDuration = 8 + Math.random() * 12 + "s";
+        star.style.animationDelay = Math.random() * 15 + "s";
+        star.style.fontSize = 6 + Math.random() * 12 + "px";
 
-      <h2>REGNUM</h2>
-
-      <p>THE KINGDOM OF GREATNESS</p>
-
-      <div class="footer-line"></div>
-
-      <span>© 2026 REGNUM ROYAL KINGDOM. ALL RIGHTS RESERVED.</span>
-    </footer>
-
-    <script src="js/city.js"></script>
+        starContainer.appendChild(star);
+      }
+    </script>
   </body>
 </html>
