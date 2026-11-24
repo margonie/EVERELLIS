@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Титмийн тухай хууль | EVERELLIS</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/law-detail.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><span>♛</span></div>
+        <div>
+          <div class="brand-name">EVERELLIS DE VALMONT</div>
+          <div class="brand-sub">ХААНТ УЛСЫН АЛБАН ЁСНЫ ЦАХИМ ХУУДАС</div>
+        </div>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Цэс нээх"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+
+      <nav id="navMenu">
+        <a href="index.html">НҮҮР</a>
+        <a href="laws.html" class="active">БҮХ ХУУЛЬ</a>
+        <a href="undsen.html">ҮНДСЭН ХУУЛЬ</a>
+        <a href="irgenii.html">ИРГЭНИЙ ТУХАЙ ХУУЛЬ</a>
+        <a href="hurungiin.html">ХӨРӨНГИЙН ТУХАЙ ХУУЛЬ</a>
+        <a href="zurchliin.html">ДЭГ ЖУРМЫН ТУХАЙ ХУУЛЬ</a>
+        <a href="shuuntaslah.html">ШҮҮН ТАСЛАХ ТУХАЙ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="law-hero">
+        <div class="eyebrow">EVERELLIS DE VALMONT · I</div>
+
+        <h1>ТИТМИЙН ТУХАЙ ХУУЛЬ</h1>
+
+        <p>
+          EVERELLIS хаант улсын хаан ширээ залгамжлах дараалал, хаан ширээ
+          өвлүүлэх нөхцөл, угсаа залгамжлал болон титмийн эрх зүйн байдлыг
+          зохицуулах эрх зүйн баримт бичиг.
+        </p>
+      </section>
+
+      <div class="law-container">
+        <div class="law-archive-layout">
+          <!-- ЗҮҮН ТАЛЫН ЦЭС -->
+          <aside class="law-sidebar">
+            <button class="law-sidebar-toggle" onclick="toggleLawMenu()">
+              ХУУЛИЙН БҮЛГҮҮД
+              <span id="lawArrow">＋</span>
+            </button>
+
+            <nav>
+              <button
+                class="law-chapter-btn active"
+                onclick="showLawChapter(0, this)"
+              >
+                I. Төрийн үндсэн байгуулал
+              </button>
+
+              <button class="law-chapter-btn" onclick="showLawChapter(1, this)">
+                II. Хааны байр суурь
+              </button>
+
+              <button class="law-chapter-btn" onclick="showLawChapter(2, this)">
+                III. Язгууртны тогтолцоо
+              </button>
+
+              <button class="law-chapter-btn" onclick="showLawChapter(3, this)">
+                IV. Гүнт улсууд ба засаг захиргаа
+              </button>
+            </nav>
+          </aside>
+
+          <!-- БАРУУН ТАЛЫН АГУУЛГА -->
+          <div class="law-content">
+            <section class="law-section active">
+              <div class="law-document-heading">
+                <span>CHAPTER I</span>
+                <h2>НЭГДҮГЭЭР БҮЛЭГ — ЕРӨНХИЙ ҮНДЭСЛЭЛ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>1 дүгээр зүйл. Хаант улсын нэр</h3>
+                <p>1.1. Улсын албан ёсны нэр нь EVERELLIS DE VALMONT байна.</p>
+                <p>
+                  1.2. Хаант улсын нэрийг төрийн бүх албан ёсны баримт бичигт
+                  хэрэглэнэ.
+                </p>
+              </div>
+
+              <div class="law-article">
+                <h3>2 дугаар зүйл. Улсын үндсэн зарчим</h3>
+                <p>
+                  2.1. Хаант улсын үндсэн зарчим нь эв нэгдэл, шударга ёс,
+                  хүндэтгэл болон хөгжил байна.
+                </p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER II</span>
+                <h2>ХОЁРДУГААР БҮЛЭГ — ИРГЭНИЙ ЭРХ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>3 дугаар зүйл. Иргэний эрх</h3>
+                <p>
+                  3.1. Иргэн бүр хаант улсын тогтоосон журмын хүрээнд үзэл
+                  бодлоо илэрхийлэх эрхтэй.
+                </p>
+                <p>3.2. Иргэн бүр өөрийн нэр, дүр, харьяалалтай байна.</p>
+              </div>
+
+              <div class="law-article">
+                <h3>4 дүгээр зүйл. Иргэний үүрэг</h3>
+                <p>
+                  4.1. Иргэн бүр хаант улсын хууль, дотоод журмыг хүндэтгэн
+                  сахина.
+                </p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER III</span>
+                <h2>ГУРАВДУГААР БҮЛЭГ — ТӨРИЙН БАЙГУУЛАЛ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>5 дугаар зүйл. Хааны эрх</h3>
+                <p>5.1. Хаан нь хаант улсын төрийн тэргүүн байна.</p>
+                <p>5.2. Хаан улсын эв нэгдэл, тогтвортой байдлыг эрхэмлэнэ.</p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER IV</span>
+                <h2>ДӨРӨВДҮГЭЭР БҮЛЭГ — ТӨРИЙН БЭЛГЭ ТЭМДЭГ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>6 дугаар зүйл. Улсын сүлд</h3>
+                <p>
+                  6.1. Хаант улсын сүлд нь төрийн албан ёсны бэлгэ тэмдэг байна.
+                </p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER V</span>
+                <h2>ТАВДУГААР БҮЛЭГ — ЭЦСИЙН ЗААЛТ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>7 дугаар зүйл. Хууль хүчин төгөлдөр болох</h3>
+                <p>
+                  7.1. Энэхүү Үндсэн хууль нь хаант улсын эрх бүхий удирдлагаар
+                  батлагдсан өдрөөс хүчин төгөлдөр болно.
+                </p>
+              </div>
+            </section>
+
+            <!-- ЗАРЛИГИЙН ХЭСЭГ -->
+            <div class="law-decree">
+              <h3>ХААНЫ ЗАРЛИГ</h3>
+
+              <p>
+                Баримт бичгийн дугаар: EV-001<br />
+                Баталсан огноо: 2026 он<br />
+                Баримт бичгийн төлөв: ROLEPLAY ЖИШИГ
+              </p>
+
+              <div class="law-signature">♛ EVERELLIS DE VALMONT</div>
+
+              <p>ХААНЫ ТАМГА, ГАРЫН ҮСГИЙН ХЭСЭГ</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="law-back">
+          <a href="laws.html">← БҮХ ХУУЛЬ</a>
+          <a href="index.html">НҮҮР ХУУДАС</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>© 2026 <span>EVERELLIS DE VALMONT</span></div>
+      <div>ХААНЫ ХУУЛЬ ТОГТООМЖ</div>
+    </footer>
+    <script>
+      window.CURRENT_LAW_SLUG = "titem";
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/law.js"></script>
+  </body>
+</html>

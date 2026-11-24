@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>УЛСЫН МЭДЭЭЛЭЛ | REGNUM</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/publications.css" />
+  </head>
+  <body>
+    <header class="publications-header">
+      <h1>REGNUM</h1>
+      <p>ХААНТ УЛСЫН АЛБАН ЁСНЫ МЭДЭЭЛЭЛ</p>
+    </header>
+
+    <main class="publications-container">
+      <h2>УЛСЫН МЭДЭЭЛЭЛ</h2>
+      <p class="page-description">
+        Хааны зарлиг, Тэргүүн зөвлөлийн шийдвэр болон улсын мэдээ
+      </p>
+
+      <nav class="publication-filters">
+        <button class="active" data-category="all">БҮГД</button>
+        <button data-category="news">УЛСЫН МЭДЭЭ</button>
+        <button data-category="decree">ХААНЫ ЗАРЛИГ</button>
+        <button data-category="council_decision">ЗӨВЛӨЛИЙН ШИЙДВЭР</button>
+        <button data-category="announcement">ЗАРЛАЛ</button>
+      </nav>
+
+      <div id="publicationList" class="publication-grid">
+        <p>Мэдээлэл ачаалж байна...</p>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/publications.js"></script>
+  </body>
+</html>

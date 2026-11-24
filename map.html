@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Хаант улсын газрын зураг</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .map-box {
+        background: #101722;
+        border: 1px solid var(--border);
+        padding: 20px;
+      }
+      .map-box svg {
+        width: 100%;
+        min-height: 350px;
+      }
+      .region {
+        fill: #34483d;
+        stroke: #c9a45e;
+        stroke-width: 2;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .region:hover {
+        fill: #9a8051;
+      }
+      .region-label {
+        fill: #f0d8a5;
+        font-size: 13px;
+        text-anchor: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><span>♛</span></div>
+        <div>
+          <div class="brand-name">EVERELLIS DE VALMONT</div>
+          <div class="brand-sub">ХААНТ УЛСЫН АЛБАН ЁСНЫ ЦАХИМ ХУУДАС</div>
+        </div>
+      </a>
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Цэс нээх"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+      <nav id="navMenu">
+        <a href="index.html">НҮҮР</a>
+        <a href="about.html">ХААНТ УЛС</a>
+
+        <a href="map.html" class="active">ГАЗРЫН ЗУРАГ</a>
+        <a href="laws.html">ХУУЛЬ</a>
+        <a href="events.html">ЭВЕНТ</a>
+        <a href="account.html" class="active">ИРГЭНИЙ БҮРТГЭЛ</a>
+      </nav>
+    </header>
+
+    <div class="map-container">
+      <div class="map-heading">
+        <small>REGNUM EVERELLIS DE VALMONT</small>
+        <h1>ХААНТ УЛСЫН ГАЗРЫН ЗУРАГ</h1>
+        <p>Хот болон мужийн нэр дээр дарж дэлгэрэнгүй танилцана уу.</p>
+      </div>
+
+      <div class="map-box">
+        <svg
+          class="kingdom-map"
+          viewBox="0 0 800 570"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!-- ХОЙД МУЖ -->
+          <a href="hoid.html" class="map-region north">
+            <path d="M230 55 L570 55 L650 180 L400 275 L150 180 Z" />
+            <text x="400" y="135" text-anchor="middle">AUREVAYNE</text>
+            <text x="400" y="160" text-anchor="middle" class="region-sub">
+              ХОЙД БҮС
+            </text>
+          </a>
+
+          <!-- БАРУУН МУЖ -->
+          <a href="baruun.html" class="map-region west">
+            <path d="M150 180 L400 275 L400 350 L190 445 L65 340 L65 235 Z" />
+            <text x="200" y="300" text-anchor="middle">VAELTHERA</text>
+            <text x="200" y="325" text-anchor="middle" class="region-sub">
+              БАРУУН БҮС
+            </text>
+          </a>
+
+          <!-- ЗҮҮН МУЖ -->
+          <a href="zuun.html" class="map-region east">
+            <path d="M650 180 L735 235 L735 340 L610 445 L400 350 L400 275 Z" />
+            <text x="600" y="300" text-anchor="middle">ELDORIA</text>
+            <text x="600" y="325" text-anchor="middle" class="region-sub">
+              ЗҮҮН БҮС
+            </text>
+          </a>
+
+          <!-- ӨМНӨД МУЖ -->
+          <a href="urd.html" class="map-region south">
+            <path d="M190 445 L400 350 L610 445 L555 525 L245 525 Z" />
+            <text x="400" y="470" text-anchor="middle">SOLMERIA</text>
+            <text x="400" y="495" text-anchor="middle" class="region-sub">
+              ӨМНӨД БҮС
+            </text>
+          </a>
+
+          <!-- НИЙСЛЭЛ -->
+          <a href="niislel.html" class="capital-region">
+            <circle cx="400" cy="305" r="66" />
+            <circle cx="400" cy="305" r="53" class="capital-inner" />
+
+            <text x="400" y="300" text-anchor="middle" class="crown">♛</text>
+
+            <text x="400" y="325" text-anchor="middle" class="capital-name">
+              ARCELIA
+            </text>
+          </a>
+        </svg>
+      </div>
+
+      <div class="map-instruction">
+        <span>♛</span> Нийслэл — ARCELIA
+        <p>Таван хотын аль нэгийг сонгон танилцуулгын хуудсанд шилжинэ үү.</p>
+      </div>
+    </div>
+
+    <footer>
+      <div>© 2026 <span>EVERELLIS DE VALMONT</span></div>
+      <div>ХААНТ УЛСЫН ГАЗРЫН ЗУРАГ</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

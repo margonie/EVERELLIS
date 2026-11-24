@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regnum Everellis de Valmont</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><span>♛</span></div>
+        <div>
+          <div class="brand-name">EVERELLIS DE VALMONT</div>
+          <div class="brand-sub">
+            ТИТЭМТ ХААНТ УЛСЫН АЛБАН ЁСНЫ ЦАХИМ ХУУДАС
+          </div>
+        </div>
+      </a>
+      <button
+        type="button"
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Цэс нээх"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+      <nav id="navMenu">
+        <a href="index.html" class="active">НҮҮР</a>
+        <a href="about.html">ХААНТ УЛС</a>
+        <a href="map.html">ГАЗРЫН ЗУРАГ</a>
+        <a href="laws.html">ХУУЛЬ</a>
+        <a href="events.html">ЭВЕНТ</a>
+
+        <a href="account.html">ИРГЭНИЙ БҮРТГЭЛ</a>
+      </nav>
+    </header>
+
+    <main
+      style="
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background:
+          linear-gradient(rgba(8, 10, 16, 0.72), rgba(8, 10, 16, 0.92)),
+          url(&quot;https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=85&w=2000&quot;)
+            center/cover fixed;
+      "
+    >
+      <div class="container">
+        <div
+          style="
+            width: 115px;
+            height: 115px;
+            border: 1px solid var(--gold);
+            display: grid;
+            place-items: center;
+            margin: 0 auto 40px;
+            transform: rotate(45deg);
+          "
+        >
+          <span
+            style="
+              transform: rotate(-45deg);
+              font-size: 60px;
+              color: var(--gold-light);
+            "
+            >♛</span
+          >
+        </div>
+
+        <div class="eyebrow">БҮРЭН ЭРХТ ХААНТ УЛС</div>
+
+        <h1 class="title" style="font-size: clamp(30px, 6vw, 75px)">
+          REGNUM
+          <br />
+          EVERELLIS DE VALMONT
+        </h1>
+
+        <p class="description" style="margin: 25px auto 35px">
+          UNA CORONA, UNUM REGNUM.
+          <br />
+          нэг титэм, нэг хаант улс.
+        </p>
+
+        <a href="about.html" class="gold-button"> ХААНТ УЛСТАЙ ТАНИЛЦАХ → </a>
+      </div>
+    </main>
+
+    <footer>
+      <div>© 2026 <span>EVERELLIS DE VALMONT</span></div>
+      <div>ONE CROWN · ONE KINGDOM · ETERNAL LEGACY</div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everellis | Citizen System</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/account.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="brand-icon"><span>♛</span></div>
+        <div>
+          <div class="brand-name">EVERELLIS</div>
+          <div class="brand-sub">ROYAL KINGDOM</div>
+        </div>
+      </div>
+
+      <button class="menu-btn" id="menuBtn">☰</button>
+
+      <nav id="navMenu">
+        <a href="index.html" class="active">НҮҮР</a>
+        <a href="about.html">ХААНТ УЛС</a>
+        <a href="map.html">ГАЗРЫН ЗУРАГ</a>
+        <a href="laws.html">ХУУЛЬ</a>
+        <a href="events.html">ЭВЕНТ</a>
+        <a
+          href="#archive"
+          onclick="
+            showSection('archiveSection');
+            return false;
+          "
+        >
+          АРХИВ
+        </a>
+        <a href="account.html" class="active">ИРГЭНИЙ БҮРТГЭЛ</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="account-container">
+        <!-- LOGIN -->
+        <section id="loginSection" class="account-panel">
+          <div class="account-heading">
+            <div class="royal-symbol">♛</div>
+            <p class="eyebrow">CITIZEN AUTHENTICATION</p>
+            <h1 class="title">НЭВТРЭХ</h1>
+            <p class="description">Everellis хаант улсын иргэдийн систем</p>
+          </div>
+
+          <div class="field">
+            <label>Имэйл хаяг</label>
+            <input
+              id="loginEmail"
+              type="email"
+              placeholder="example@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label>Нууц үг</label>
+            <input id="loginPassword" type="password" placeholder="Нууц үг" />
+          </div>
+
+          <button class="gold-button account-button" onclick="login()">
+            НЭВТРЭХ
+          </button>
+
+          <div class="account-links">
+            <button onclick="showSection('registerSection')">Шинэ иргэн</button>
+            <button type="button" onclick="forgotPassword()">
+              Нууц үгээ мартсан?
+            </button>
+            <button onclick="showSection('adminLoginSection')">
+              Админаар нэвтрэх
+            </button>
+          </div>
+        </section>
+
+        <!-- REGISTER -->
+        <section id="registerSection" class="account-panel hidden">
+          <p class="eyebrow">NEW CITIZEN REGISTRATION</p>
+          <h1 class="title">ШИНЭ ИРГЭН</h1>
+          <p class="description">
+            Хаант улсын иргэн болох бүртгэлээ бөглөнө үү.
+          </p>
+
+          <form id="registerForm" class="form-grid">
+            <div class="field">
+              <label>Овог</label>
+              <input id="regSurname" required />
+            </div>
+
+            <div class="field">
+              <label>Нэр</label>
+              <input id="regName" required />
+            </div>
+
+            <div class="field">
+              <label>Имэйл хаяг</label>
+              <input
+                id="regEmail"
+                type="email"
+                placeholder="example@gmail.com"
+                required
+              />
+            </div>
+            <div class="field">
+              <label>Нууц үг</label>
+              <input
+                id="regPassword"
+                type="password"
+                required
+                minlength="8"
+                placeholder="Дор хаяж 8 тэмдэгт"
+              />
+            </div>
+
+            <div class="field">
+              <label>Хот</label>
+              <input id="regCity" required />
+            </div>
+
+            <div class="field">
+              <label>House</label>
+              <input id="regHouse" required />
+            </div>
+            <div class="field">
+              <label>Цол</label>
+              <input id="regTsol" required />
+            </div>
+            <div class="field">
+              <label>Албан тушаал</label>
+              <input id="regAlbantushaal" required />
+            </div>
+
+            <div class="field full">
+              <label>Анхдагч дүр</label>
+              <input id="regCharacter" required />
+            </div>
+
+            <div class="field full">
+              <label>Хоёрдогч дүр</label>
+              <input id="regSecondcharacter" required />
+            </div>
+
+            <div class="field full">
+              <label>Дансны дугаар</label>
+              <input id="regAccount" required />
+            </div>
+
+            <div class="field full">
+              <button class="gold-button account-button" type="submit">
+                БҮРТГҮҮЛЭХ
+              </button>
+            </div>
+          </form>
+
+          <button class="back-button" onclick="showSection('loginSection')">
+            ← БУЦАХ
+          </button>
+        </section>
+
+        <!-- ADMIN LOGIN -->
+        <section id="adminLoginSection" class="account-panel hidden">
+          <p class="eyebrow">ROYAL ADMINISTRATION</p>
+          <h1 class="title">АДМИН НЭВТРЭХ</h1>
+
+          <div class="field">
+            <label>Админы имэйл</label>
+            <input
+              id="adminEmail"
+              type="email"
+              placeholder="admin@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label>Нууц үг</label>
+            <input id="adminPassword" type="password" required />
+          </div>
+
+          <button class="gold-button account-button" onclick="adminLogin()">
+            НЭВТРЭХ
+          </button>
+
+          <button class="back-button" onclick="showSection('loginSection')">
+            ← БУЦАХ
+          </button>
+        </section>
+
+        <!-- CITIZEN DASHBOARD -->
+        <section id="dashboardSection" class="hidden">
+          <div class="account-heading">
+            <p class="eyebrow">CITIZEN PERSONAL SPACE</p>
+            <h1 class="title">МИНИЙ БУЛАН</h1>
+            <p class="description" id="welcomeText"></p>
+          </div>
+
+          <div class="panel">
+            <h2 class="gold-text">МИНИЙ БҮРТГЭЛ</h2>
+            <div id="citizenInfo" class="info-grid"></div>
+            <button class="outline-button" onclick="editCitizen()">
+              МЭДЭЭЛЭЛ ШИНЭЧЛЭХ
+            </button>
+          </div>
+
+          <div class="panel">
+            <h2 class="gold-text">МИНИЙ ДАНС</h2>
+            <p class="muted">Дансны дугаар</p>
+            <h3 id="myAccount"></h3>
+
+            <p class="muted">Дансны үлдэгдэл</p>
+            <h2 id="myBalance" class="gold-text"></h2>
+          </div>
+          <div class="panel">
+            <div id="myStatement"></div>
+          </div>
+
+          <button class="outline-button" onclick="logout()">ГАРАХ</button>
+        </section>
+
+        <!-- CITIZEN ARCHIVE -->
+        <section id="archiveSection" class="hidden">
+          <div class="account-heading">
+            <p class="eyebrow">ROYAL CITIZEN RECORDS</p>
+            <h1 class="title">ИРГЭДИЙН АРХИВ</h1>
+            <p class="description">
+              Everellis хаант улсын албан ёсны иргэдийн бүртгэл.
+            </p>
+          </div>
+
+          <div class="panel">
+            <h2 class="gold-text">ИРГЭН ХАЙХ</h2>
+
+            <div class="field">
+              <input
+                type="text"
+                id="archiveSearch"
+                placeholder="Овог, нэр, дүрийн нэрээр хайх..."
+                oninput="renderArchive()"
+              />
+            </div>
+
+            <p class="muted" id="archiveCount"></p>
+          </div>
+
+          <div id="archiveList" class="archive-grid"></div>
+
+          <div class="back-area">
+            <a href="index.html" class="back-button"> НҮҮР ХУУДАС РУУ БУЦАХ </a>
+          </div>
+        </section>
+
+        <!-- ADMIN DASHBOARD -->
+
+        <section id="adminSection" class="hidden">
+          <p class="eyebrow">KINGDOM MANAGEMENT</p>
+          <h1 class="title">АДМИН УДИРДЛАГА</h1>
+          <!-- EVENT MANAGEMENT -->
+          <!-- PUBLICATION MANAGEMENT -->
+          <div class="panel publication-admin-panel">
+            <!-- ХҮЛЭЭГДЭЖ БУЙ ХҮСЭЛТ -->
+            <div class="pending-section">
+              <h2>ШИНЭ ИРГЭДИЙН ХҮСЭЛТ</h2>
+              <p>
+                Хүлээгдэж буй хүсэлт:
+                <strong id="pendingCount">0</strong>
+              </p>
+              <div id="pendingList"></div>
+            </div>
+
+            <!-- ИРГЭН ХАЙХ -->
+            <div class="field">
+              <label>Иргэн хайх</label>
+              <input
+                id="adminSearch"
+                placeholder="Нэр эсвэл дүрийн нэр..."
+                oninput="renderAdmin()"
+              />
+            </div>
+            <hr />
+
+            <h3 class="gold-text">НИЙТЛЭЛҮҮД</h3>
+            <div id="adminPublicationList">
+              <p>Мэдээлэл ачаалж байна...</p>
+            </div>
+          </div>
+          <div class="panel event-admin-panel">
+            <h2 class="gold-text">♛ EVENT MANAGEMENT</h2>
+
+            <p class="description">
+              Хаант улсын арга хэмжээ, ёслол болон үйл явдлыг удирдах.
+            </p>
+
+            <form id="eventForm" class="form-grid">
+              <input type="hidden" id="eventEditId" />
+
+              <div class="field full">
+                <label>Эвентийн нэр</label>
+                <input id="eventTitle" required placeholder="Royal Ball..." />
+              </div>
+
+              <div class="field">
+                <label>Эвентийн төрөл</label>
+                <select id="eventCategory" required>
+                  <option value="ROYAL CEREMONY">ROYAL CEREMONY</option>
+                  <option value="KINGDOM EVENT">KINGDOM EVENT</option>
+                  <option value="ANNOUNCEMENT">ANNOUNCEMENT</option>
+                  <option value="CELEBRATION">CELEBRATION</option>
+                  <option value="OTHER">OTHER</option>
+                  <option value="news">УЛСЫН МЭДЭЭ</option>
+                  <option value="decree">ХААНЫ ЗАРЛИГ</option>
+                  <option value="council_decision">ЗӨВЛӨЛИЙН ШИЙДВЭР</option>
+                  <option value="announcement">ЗАРЛАЛ</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label>Огноо, цаг</label>
+                <input id="eventDate" type="datetime-local" required />
+              </div>
+
+              <div class="field full">
+                <label>Байршил</label>
+                <input
+                  id="eventLocation"
+                  required
+                  placeholder="Royal Palace..."
+                />
+              </div>
+
+              <div class="field full">
+                <label>Зургийн URL</label>
+                <input id="eventImage" type="url" placeholder="https://..." />
+              </div>
+
+              <div class="field full">
+                <label>Дэлгэрэнгүй мэдээлэл</label>
+                <textarea
+                  id="eventDescription"
+                  required
+                  placeholder="Эвентийн тухай дэлгэрэнгүй..."
+                ></textarea>
+              </div>
+
+              <div class="field full">
+                <button type="submit" class="gold-button account-button">
+                  SAVE EVENT
+                </button>
+                <button
+                  type="button"
+                  class="outline-button"
+                  onclick="cancelEventEdit()"
+                >
+                  БОЛИХ
+                </button>
+              </div>
+            </form>
+
+            <hr style="border-color: rgba(201, 164, 94, 0.2); margin: 25px 0" />
+
+            <h2 class="gold-text">НИЙТЛЭГДСЭН ЭВЕНТҮҮД</h2>
+            <p class="muted" id="eventAdminCount">0 эвент</p>
+
+            <div id="adminEventList"></div>
+          </div>
+
+          <!-- LAW MANAGEMENT -->
+          <div class="panel law-admin-panel">
+            <h2 class="gold-text">♛ LAW MANAGEMENT</h2>
+            <p class="description">
+              Хаант улсын хууль тогтоомж, бүлэг, зүйл, заалтыг удирдах.
+            </p>
+
+            <div class="field full">
+              <label>Хууль сонгох</label>
+              <select id="adminLawSelect">
+                <option value="undsen">ҮНДСЭН ХУУЛЬ</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label>Бүлэг сонгох</label>
+              <select id="adminChapterSelect">
+                <option value="">Бүлэг ачаалж байна...</option>
+              </select>
+
+              <button
+                type="button"
+                class="admin-btn"
+                onclick="addLawChapter()"
+                style="margin-top: 12px"
+              >
+                + БҮЛЭГ НЭМЭХ
+              </button>
+            </div>
+
+            <div id="adminLawStatus"></div>
+
+            <hr />
+
+            <h3 class="gold-text">ЗҮЙЛ, ЗААЛТЫН ЖАГСААЛТ</h3>
+            <div id="adminLawArticleList">
+              <p>Мэдээлэл ачаалж байна...</p>
+            </div>
+
+            <hr />
+
+            <h3 class="gold-text">ЗҮЙЛ НЭМЭХ / ЗАСАХ</h3>
+
+            <form id="lawArticleForm" class="form-grid">
+              <input type="hidden" id="lawArticleEditId" />
+
+              <div class="field">
+                <label>Зүйлийн дугаар</label>
+                <input id="lawArticleNumber" required placeholder="1" />
+              </div>
+
+              <div class="field full">
+                <label>Зүйлийн гарчиг</label>
+                <input
+                  id="lawArticleTitle"
+                  required
+                  placeholder="Зүйлийн гарчиг..."
+                />
+              </div>
+
+              <div class="field full">
+                <label>Агуулга</label>
+                <textarea
+                  id="lawArticleContent"
+                  required
+                  rows="10"
+                  placeholder="Хуулийн заалтууд..."
+                ></textarea>
+              </div>
+
+              <div class="field full">
+                <label>
+                  <input type="checkbox" id="lawArticlePublish" checked />
+                  Нийтлэх
+                </label>
+              </div>
+
+              <div class="field full">
+                <button type="submit" class="gold-button account-button">
+                  ХАДГАЛАХ
+                </button>
+
+                <button
+                  type="button"
+                  class="outline-button"
+                  onclick="resetLawArticleForm()"
+                >
+                  БОЛИХ
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="finance-report">
+            <h2 class="gold-text">УЛСЫН САНХҮҮГИЙН ТАЙЛАН</h2>
+
+            <div class="finance-grid">
+              <div class="finance-card">
+                <small>Нийт иргэн</small>
+                <strong id="reportCitizenCount">0</strong>
+              </div>
+
+              <div class="finance-card">
+                <small>Нийт үлдэгдэл</small>
+                <strong id="reportBalance">0 VD</strong>
+              </div>
+
+              <div class="finance-card">
+                <small>Нийт орлого</small>
+                <strong id="reportIncome">0 VD</strong>
+              </div>
+
+              <div class="finance-card">
+                <small>Нийт зарлага</small>
+                <strong id="reportExpense">0 VD</strong>
+              </div>
+            </div>
+            <div class="transaction-filters">
+              <select
+                id="transactionTypeFilter"
+                onchange="filterAdminTransactions()"
+              >
+                <option value="all">Бүх гүйлгээ</option>
+                <option value="income">Орлого</option>
+                <option value="expense">Зарлага</option>
+              </select>
+
+              <select
+                id="transactionCitizenFilter"
+                onchange="filterAdminTransactions()"
+              >
+                <option value="all">Бүх иргэн</option>
+              </select>
+
+              <input
+                type="date"
+                id="transactionDateFilter"
+                onchange="filterAdminTransactions()"
+              />
+
+              <button type="button" onclick="resetTransactionFilters()">
+                Шүүлтүүр цэвэрлэх
+              </button>
+            </div>
+
+            <h3 class="gold-text">СҮҮЛИЙН ГҮЙЛГЭЭНҮҮД</h3>
+            <div id="recentTransactions">
+              <p>Гүйлгээ ачаалж байна...</p>
+            </div>
+          </div>
+          <!-- БАТАЛГААЖСАН ИРГЭД -->
+          <h2>БҮРТГЭЛТЭЙ ИРГЭД</h2>
+          <div id="adminList"></div>
+          <hr />
+          <hr />
+          <!-- НИЙТ ИРГЭД -->
+          <div class="panel">
+            <h2 class="gold-text">НИЙТ ИРГЭД</h2>
+            <h1 id="citizenCount" class="title">0</h1>
+          </div>
+
+          <button class="outline-button" onclick="logout()">ГАРАХ</button>
+        </section>
+      </div>
+    </main>
+    <div id="notification" class="notification">
+      <div class="notification-icon" id="notificationIcon">✦</div>
+
+      <div class="notification-content">
+        <strong id="notificationTitle">Мэдэгдэл</strong>
+        <p id="notificationMessage"></p>
+      </div>
+
+      <button onclick="hideNotification()" class="notification-close">×</button>
+    </div>
+    <footer>
+      <div>EVERELLIS ROYAL KINGDOM</div>
+      <div>ROYAL CITIZEN SYSTEM <span>♛</span></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="account.js"></script>
+
+    <script>
+      document.getElementById("menuBtn").onclick = function () {
+        document.getElementById("navMenu").classList.toggle("open");
+      };
+    </script>
+  </body>
+</html>

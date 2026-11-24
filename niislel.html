@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARCELIA | Regnum Everellis</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #100d0a;
+        color: #f0e2c5;
+        font-family: Georgia, serif;
+      }
+      header {
+        padding: 25px 8%;
+        border-bottom: 1px solid #a98a50;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        color: #e8ca88;
+        letter-spacing: 4px;
+      }
+      nav a {
+        color: #d8c49b;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 12px;
+      }
+      .hero {
+        text-align: center;
+        padding: 130px 20px;
+        background: radial-gradient(#60451e, #100d0a 70%);
+      }
+      .hero small {
+        letter-spacing: 6px;
+        color: #d9bb7d;
+      }
+      h1 {
+        font-size: clamp(45px, 8vw, 85px);
+        letter-spacing: 10px;
+        color: #f3d99c;
+        margin: 25px 0;
+      }
+      .subtitle {
+        letter-spacing: 5px;
+        color: #d9bb7d;
+      }
+      .line {
+        width: 120px;
+        height: 1px;
+        background: #d9bb7d;
+        margin: 35px auto;
+      }
+      .intro {
+        max-width: 750px;
+        margin: auto;
+        line-height: 2;
+        color: #e1d2b4;
+      }
+      .content {
+        max-width: 1050px;
+        margin: auto;
+        padding: 60px 25px;
+      }
+      section {
+        padding: 40px 0;
+        border-bottom: 1px solid #594529;
+      }
+      h2 {
+        color: #e7c987;
+        letter-spacing: 3px;
+      }
+      p {
+        line-height: 2;
+        color: #d3c4a8;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 25px;
+      }
+      .card {
+        background: linear-gradient(145deg, #302313, #17110b);
+        border: 1px solid #a98a50;
+        padding: 28px;
+        transition: 0.4s;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        border-color: #f3d99c;
+        box-shadow: 0 10px 30px #0008;
+      }
+      .card h3 {
+        color: #f0d69a;
+      }
+      .back {
+        display: inline-block;
+        padding: 16px 28px;
+        border: 1px solid #d9bb7d;
+        color: #f0d69a;
+        text-decoration: none;
+        margin-top: 35px;
+        letter-spacing: 2px;
+      }
+      .back:hover {
+        background: #d9bb7d;
+        color: #100d0a;
+      }
+      footer {
+        text-align: center;
+        padding: 40px;
+        border-top: 1px solid #594529;
+        color: #d9bb7d;
+        letter-spacing: 3px;
+      }
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          gap: 20px;
+        }
+        nav a {
+          margin: 0 7px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        h1 {
+          letter-spacing: 4px;
+        }
+      }
+      /* FLOATING ROYAL STARS */
+      .floating-stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .star {
+        position: absolute;
+        top: -20px;
+        color: #f5d98b;
+        font-size: 14px;
+        opacity: 0;
+        animation: starFloat linear infinite;
+        text-shadow: 0 0 10px #f5d98b;
+      }
+
+      @keyframes starFloat {
+        0% {
+          transform: translateY(-10px) rotate(0deg);
+          opacity: 0;
+        }
+        15% {
+          opacity: 0.8;
+        }
+        85% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">REGNUM EVERELLIS</div>
+      <nav>
+        <a href="index.html">НҮҮР</a>
+        <a href="map.html">ГАЗРЫН ЗУРАГ</a>
+        <a href="baruun.html">БАРУУН</a>
+        <a href="zuun.html">ЗҮҮН</a>
+        <a href="hoid.html">ХОЙД</a>
+        <a href="urd.html">ӨМНӨД</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <small>REGNUM EVERELLIS DE VALMONT</small>
+      <div class="line"></div>
+      <h1>ARCELIA</h1>
+      <div class="subtitle">АРСЕЛИА · ХААНТ УЛСЫН НИЙСЛЭЛ</div>
+      <div class="line"></div>
+      <p class="intro">
+        Хааны ордон, төрийн байгууллагууд, дипломат харилцаа, хаант улсын соёл
+        иргэншлийн төв болсон сүр жавхлант нийслэл.
+      </p>
+    </div>
+
+    <main class="content">
+      <section>
+        <h2>I. НИЙСЛЭЛИЙН ТҮҮХ</h2>
+        <p>
+          Арселиа нь Regnum Everellis de Valmont хаант улсын улс төр, түүх,
+          соёлын төв юм. Хаант улсын нэгдмэл байдлыг бэлгэдсэн энэхүү хотод
+          хааны ордон болон төрийн гол байгууллагууд байрладаг.
+        </p>
+      </section>
+
+      <section>
+        <h2>II. ТӨРИЙН БАЙГУУЛЛАГУУД</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>ХААНЫ ОРДОН</h3>
+            <p>Хааны гэр бүл болон хаант улсын дээд удирдлагын ордон.</p>
+          </div>
+          <div class="card">
+            <h3>ТЭРГҮҮН ЗӨВЛӨЛ</h3>
+            <p>Хууль тогтоох дээд байгууллага.</p>
+          </div>
+          <div class="card">
+            <h3>ТИТМИЙН ЗӨВЛӨЛ</h3>
+            <p>Төрийн гүйцэтгэх засаглалын байгууллага.</p>
+          </div>
+          <div class="card">
+            <h3>ДЭЭД ШҮҮХ</h3>
+            <p>Шүүх эрх мэдлийн дээд байгууллага.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>III. ХОТЫН ХӨГЖИЛ</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>ДИПЛОМАТ ХАРИЛЦАА</h3>
+            <p>Гадаад улсын элчин төлөөлөгчийн газрууд.</p>
+          </div>
+          <div class="card">
+            <h3>СОЁЛ, УРЛАГ</h3>
+            <p>Музей, театр, түүхэн ордон, урлагийн төвүүд.</p>
+          </div>
+          <div class="card">
+            <h3>БОЛОВСРОЛ</h3>
+            <p>Хаант улсын нэр хүндтэй их сургууль, академи.</p>
+          </div>
+          <div class="card">
+            <h3>ЭДИЙН ЗАСАГ</h3>
+            <p>Санхүү, худалдаа, төрийн үйлчилгээний төв.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>IV. НИЙСЛЭЛИЙН БЭЛГЭДЭЛ</h2>
+        <p><b>Тэмдэг:</b> Алтан титэм ба хоёр толгойт бүргэд.</p>
+        <p><b>Уриа:</b> “Нэг титэм, нэг хаант улс, нэг ирээдүй.”</p>
+      </section>
+
+      <a href="map.html" class="back">← ГАЗРЫН ЗУРАГ РУУ БУЦАХ</a>
+    </main>
+
+    <footer>REGNUM EVERELLIS DE VALMONT · ARCELIA</footer>
+    <div class="floating-stars"></div>
+    <script>
+      const starContainer = document.querySelector(".floating-stars");
+
+      for (let i = 0; i < 45; i++) {
+        const star = document.createElement("span");
+
+        star.className = "star";
+        star.innerHTML = "✦";
+
+        star.style.left = Math.random() * 100 + "%";
+        star.style.animationDuration = 8 + Math.random() * 12 + "s";
+        star.style.animationDelay = Math.random() * 15 + "s";
+        star.style.fontSize = 6 + Math.random() * 12 + "px";
+
+        starContainer.appendChild(star);
+      }
+    </script>
+  </body>
+</html>

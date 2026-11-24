@@ -1,0 +1,163 @@
+.ranks-page {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+.ranks-hero {
+  text-align: center;
+  padding: 60px 20px 75px;
+}
+
+.ranks-hero .royal-symbol {
+  color: var(--gold-light);
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+
+.ranks-hero .title {
+  color: var(--gold-light);
+  font-family: "Cinzel", serif;
+  font-size: clamp(30px, 5vw, 52px);
+  letter-spacing: 5px;
+}
+
+.ranks-hero .description {
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.9;
+}
+
+.gold-line {
+  width: 100px;
+  height: 1px;
+  background: var(--gold);
+  margin: 35px auto 0;
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rank-card {
+  display: grid;
+  grid-template-columns: 55px 75px 1fr 45px;
+  align-items: center;
+  gap: 20px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: 0.3s ease;
+}
+
+.rank-card:hover {
+  background: var(--surface-light);
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.rank-number {
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  font-size: 19px;
+}
+
+.rank-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  color: var(--gold-light);
+  font-size: 30px;
+}
+
+.rank-level {
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.rank-info h2 {
+  color: var(--white);
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.rank-info p:last-child {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.rank-mark {
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  font-size: 20px;
+  text-align: right;
+}
+
+.rank-note {
+  text-align: center;
+  margin-top: 70px;
+  padding: 45px 25px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.rank-note span {
+  color: var(--gold);
+  font-size: 35px;
+}
+
+.rank-note h2 {
+  color: var(--gold-light);
+  margin: 18px 0;
+  letter-spacing: 2px;
+}
+
+.rank-note p {
+  max-width: 650px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 2;
+}
+
+@media (max-width: 650px) {
+  .ranks-page {
+    padding: 60px 0;
+  }
+
+  .rank-card {
+    grid-template-columns: 30px 50px 1fr;
+    gap: 12px;
+    padding: 18px 12px;
+  }
+
+  .rank-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 23px;
+  }
+
+  .rank-info h2 {
+    font-size: 13px;
+  }
+
+  .rank-info p:last-child {
+    font-size: 11px;
+  }
+
+  .rank-level {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .rank-mark {
+    display: none;
+  }
+}

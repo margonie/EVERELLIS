@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Үндсэн хууль | EVERELLIS</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/law-detail.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><span>♛</span></div>
+        <div>
+          <div class="brand-name">EVERELLIS DE VALMONT</div>
+          <div class="brand-sub">ХААНТ УЛСЫН АЛБАН ЁСНЫ ЦАХИМ ХУУДАС</div>
+        </div>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Цэс нээх"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >
+        ☰
+      </button>
+
+      <nav id="navMenu">
+        <a href="index.html">НҮҮР</a>
+        <a href="laws.html" class="active">БҮХ ХУУЛЬ</a>
+        <a href="irgenii.html">ИРГЭНИЙ ТУХАЙ ХУУЛЬ</a>
+        <a href="hurungiin.html">ХӨРӨНГИЙН ТУХАЙ ХУУЛЬ</a>
+        <a href="zurchliin.html">ДЭГ ЖУРМЫН ТУХАЙ ХУУЛЬ</a>
+        <a href="shuuntaslah.html">ШҮҮН ТАСЛАХ ТУХАЙ</a>
+        <a href="titem.html">ТИТМИЙН ТУХАЙ ХУУЛЬ</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="law-hero">
+        <div class="eyebrow">EVERELLIS DE VALMONT · I</div>
+
+        <h1>ҮНДСЭН ХУУЛЬ</h1>
+
+        <p>
+          EVERELLIS хаант улсын төрийн байгуулал, засаглалын бүтэц болон төрийн
+          эрх мэдлийн үндсэн зарчмыг тодорхойлох эрх зүйн дээд баримт бичиг.
+        </p>
+      </section>
+
+      <div class="law-container">
+        <div class="law-archive-layout">
+          <!-- ЗҮҮН ТАЛЫН ЦЭС -->
+          <aside class="law-sidebar">
+            <button class="law-sidebar-toggle" onclick="toggleLawMenu()">
+              ХУУЛИЙН БҮЛГҮҮД
+              <span id="lawArrow">＋</span>
+            </button>
+
+            <nav id="lawChapterNav">
+              <button
+                class="law-chapter-btn active"
+                onclick="showLawChapter(0, this)"
+              >
+                I. Төрийн үндсэн байгуулал
+              </button>
+
+              <button class="law-chapter-btn" onclick="showLawChapter(1, this)">
+                II. Хааны байр суурь
+              </button>
+
+              <button class="law-chapter-btn" onclick="showLawChapter(2, this)">
+                III. Язгууртны тогтолцоо
+              </button>
+
+              <button class="law-chapter-btn" onclick="showLawChapter(3, this)">
+                IV. Гүнт улсууд ба засаг захиргаа
+              </button>
+            </nav>
+          </aside>
+
+          <!-- БАРУУН ТАЛЫН АГУУЛГА -->
+          <div class="law-content">
+            <section class="law-section active">
+              <div class="law-document-heading">
+                <span>CHAPTER I</span>
+                <h2>НЭГДҮГЭЭР БҮЛЭГ — ТӨРИЙН ҮНДСЭН БАЙГУУЛАЛ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>1 дүгээр зүйл. Хаант улсын нэр</h3>
+                <p>1.1. Улсын албан ёсны нэр нь EVERELLIS DE VALMONT байна.</p>
+                <p>
+                  1.2. Хаант улсын нэрийг төрийн бүх албан ёсны баримт бичигт
+                  хэрэглэнэ.
+                </p>
+              </div>
+
+              <div class="law-article">
+                <h3>2 дугаар зүйл. Улсын үндсэн зарчим</h3>
+                <p>
+                  2.1. Хаант улсын үндсэн зарчим нь эв нэгдэл, шударга ёс,
+                  хүндэтгэл болон хөгжил байна.
+                </p>
+                <p>
+                  2.2. Хаант улсын уриа нь "UNA CORONA, UNUM REGNUM" буюу "НЭГ
+                  ТИТЭМ, НЭГ ХААНТ УЛС" байна.
+                </p>
+              </div>
+              <div class="law-article">
+                <h3>3 дугаар зүйл. Улсын бүрэн эрхт байдал</h3>
+                <p>
+                  3.1. Regnum Everellis de Valmont улс нь тусгаар тогтносон,
+                  бүрэн эрхт хаант улс мөн.
+                </p>
+                <p>
+                  3.2. Улсын газар нутаг, ард иргэд, төрийн эрх мэдэл нь Regnum
+                  Everellis de Valmont улсын нэгдмэл байдлыг бүрдүүлнэ.
+                </p>
+                <div class="law-article">
+                  <h4>4 дүгээр зүйл. Хаант улсын төр засаг</h4>
+                  <p>
+                    4.1. Төрийн дээд эрх мэдэл нь хааны тэргүүлсэн төрийн
+                    байгууллагад хадгалагдана.
+                  </p>
+                  <p class="level-2">
+                    4.1.1. Regnum Everellis de Valmont улсын эзэн хаан нь дараах
+                    төрийн дээд байгууллагуудыг тэргүүлнэ.
+                  </p>
+                  <p class="level-3">4.1.1.1. Төрийн зөвлөл</p>
+                  <p class="level-3">4.1.1.2. Титмийн зөвлөл</p>
+                  <p class="level-3">4.1.1.3. Дээд шүүх</p>
+                  <p class="level-2">
+                    4.1.2. Төрийн дээд байгууллагууд хааны нэрийн өмнөөс шийдвэр
+                    гаргана.
+                  </p>
+                  <p>
+                    4.2. Улсын тусгаар тогтнол, аюулгүй байдал, үндэсний ашиг
+                    сонирхлыг хамгаалах нь төрийн үндсэн үүрэг мөн.
+                  </p>
+                  <p>
+                    4.3. Хаант төрийн дээд байгууллагын харилцааг Титмийн тухай
+                    хуулиар зохицуулна.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER II</span>
+                <h2>ХОЁРДУГААР БҮЛЭГ — ХААНЫ БАЙР СУУРЬ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>1 дүгээр зүйл. Хаант төрийн тэргүүн</h3>
+                <p>
+                  1.1. Regnum Everellis de Valmont улсын Эзэн хаан (Зарим
+                  тохиолдолд Хатан хаан) нь төрийн тэргүүн бөгөөд улсын эв
+                  нэгдэл, тусгаар тогтнолын бэлгэ тэмдэг мөн.
+                </p>
+                <h3>2 дугаар зүйл. Эзэн хааны эрх мэдэл, бүрэн эрх</h3>
+                <p>
+                  2.1. Хаан нь төрийн дотоод болон гадаад бодлогын дээд
+                  чиглэлийг тодорхойлно.
+                </p>
+                <p>
+                  2.2. Хаан нь хууль батламжлах, язгууртны цол хэргэм олгох,
+                  дээд албан тушаалтныг томилох бүрэн эрхтэй
+                </p>
+                <h3>3 дугаар зүйл. Хаан ширээ залгамжлал</h3>
+                <p>
+                  3.1. Regnum Everellis de Valmont улсын хаан ширээ залгамжлагч
+                  нь Valmont угсааны шууд удмын хүн байна.
+                </p>
+                <p>
+                  3.2. Хаан ширээ залгамжлах харилцааг титмийн тухай хуулиар
+                  зохицуулна.
+                </p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER III</span>
+                <h2>ГУРАВДУГААР БҮЛЭГ — Язгууртны тогтолцоо</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>1 дүгээр зүйл. Зэрэг дэв</h3>
+                <p>
+                  1.1. Regnum Everellis de Valmont хаант улсын иргэд нийт 15
+                  дэсэд хамаарагдана.
+                </p>
+                <p class="level-2">
+                  1.1.1 1р дэс (I) Эзэн хаан / Титэмт ханхүү / Титэмт гүнж
+                </p>
+                <p class="level-2">1.1.2 2р дэс (II) Хатан / Ханхүү/ Гүнж</p>
+                <p class="level-2">1.1.3 3р дэс (III) Duke / Duchess</p>
+                <p class="level-2">1.1.4 4р дэс (IV) Тэргүүн сайд/ Их заргач</p>
+                <p class="level-2">
+                  1.1.5 5р дэс (V) Шадар сайд / Хааны зөвлөх / Honoured members
+                </p>
+                <p class="level-2">1.1.6 6р дэс (VI) Marquess / Marchioness</p>
+                <p class="level-2">
+                  1.1.7 7р дэс (VII) Яамдын сайд / Тангарагтны шүүгч / Honoured
+                  members
+                </p>
+                <p class="level-2">
+                  1.1.8 8р дэс (VIII) Count / Countess / Шүүгч / Honoured
+                  members
+                </p>
+
+                <p class="level-2">
+                  1.1.10 9р дэс (X) Vicount / Vicountess / Шүүхийн зөвлөх
+                </p>
+
+                <p class="level-2">1.1.12 10р дэс (XII) Baron / Baroness</p>
+                <p class="level-2">1.1.13 11р дэс (XII) Baronet / Baronetess</p>
+                <p class="level-2">1.1.14 12р дэс (XIV) Төрийн албан хаагч</p>
+                <p class="level-2">1.1.15 13р дэс (XV) Lord / Lady</p>
+
+                <p>
+                  1.2. III болон түүнээс дээш дэсэд хамаарагдах иргэд ихэс
+                  дээдэс болно.
+                </p>
+                <p>
+                  1.3. VI болон түүнээс дээш дэсэд хамаарагдах иргэд дээд
+                  язгууртан болно.
+                </p>
+                <p>
+                  1.4. IX болон түүнээс дээш дэсэд хамаарагдах иргэд язгууртан
+                  болно.
+                </p>
+                <p>
+                  1.5. XI болон түүнээс дээш дэсэд хамаарагдах иргэд хагас
+                  язгууртан болно.
+                </p>
+                <p>1.6. XII болон XIII дэсийн иргэд эгэл ард болно.</p>
+                <h3>2 дугаар зүйл. Цол хэргэм</h3>
+                <p>
+                  2.1. Regnum Everellis de Valmont улсын цол хэргэм нь эцгээс
+                  хүү, эхээс охинд уламжлагдан үлдэнэ.
+                </p>
+                <p>
+                  2.2. Regnum Everellis de Valmont Улсын цол хэргэмийг хуульд
+                  зааснаас бусад шалтгаанаар хурааж авч үл дийлнэ.
+                </p>
+                <p>
+                  2.3 Regnum Everellis de Valmont Улсын цол хэргэмийг дараах
+                  байдлаар ангилна.
+                </p>
+                <p class="level-2">2.3.1. III дэс Duke / Duchess</p>
+                <p class="level-2">2.3.2. VI дэс Marquess / Marchioness</p>
+                <p class="level-2">2.3.3. VIII дэс Count / Countess</p>
+                <p class="level-2">2.3.4. VIX дэс Viscount / Viscountess</p>
+                <p class="level-2">2.3.5. X дэс Baron / Baroness</p>
+                <p class="level-2">2.3.6 XI дэс Baronet / Baronetess</p>
+                <p class="level-2">2.3.7 XIII дэс Lord / Lady</p>
+                <h3>3 дугаар зүйл. Албан тушаал</h3>
+                <p>
+                  3.1. Regnum Everellis de Valmont улсын иргэд албан тушаал ахих
+                  замаар язгууртны зиндаад хүрч болно.
+                </p>
+                <p>
+                  3.2. Regnum Everellis de Valmont улсын албан тушаал нь эрх
+                  бүхий хүнээр дахин томилогдох замаар өвлөгдөнө.
+                </p>
+                <p>
+                  2.3 Regnum Everellis de Valmont Улсын албан тушаалыг дараах
+                  байдлаар ангилна.
+                </p>
+                <p class="level-2">2.3.1. IV дэс Тэргүүн сайд / Их заргач</p>
+                <p class="level-2">2.3.2. V дэс Шадар сайд / Хааны зөвлөх</p>
+                <p class="level-2">
+                  2.3.3. VII дэс Яамдын сайд / Тангарагтны шүүгч
+                </p>
+                <p class="level-2">2.3.4 VIII дэс Шүүгч</p>
+                <p class="level-2">2.3.4. IX дэс Шүүхийн зөвлөх</p>
+                <p class="level-2">2.3.5. XII дэс Төрийн албан хаагч</p>
+                <h3>4 дүгээр зүйл. Хүндлэл</h3>
+                <p>
+                  4.1. Regnum Everellis de Valmont улсын иргэд язгууртны
+                  тогтолцоонд захирагдана.
+                </p>
+                <p>
+                  4.2. Өөрөөс өндөр дэстэй эрхэмийг дэсийн зөрүүнээс үл хамааран
+                  үргэлжид хүдэтгэн харилцана.
+                </p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER IV</span>
+                <h2>ДӨРӨВДҮГЭЭР БҮЛЭГ — Засаг захиргаа</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>1 дүгээр зүйл. Зэрэг дэв</h3>
+                <p>
+                  1.1. Regnum Everellis de Valmont хаант улсын иргэд нийт 15
+                  дэсэд хамаарагдана.
+                </p>
+                <p class="level-2">
+                  1.1.1 1р дэс (I) Эзэн хаан / Титэмт ханхүү / Титэмт гүнж
+                </p>
+                <p class="level-2">1.1.2 2р дэс (II) Хатан / Ханхүү/ Гүнж</p>
+                <p class="level-2">1.1.3 3р дэс (III) Duke / Duchess</p>
+                <p class="level-2">
+                  1.1.4 4р дэс (IV) Тэргүүн сайд/ Их заргач / Цэргийн маршал
+                </p>
+                <p class="level-2">
+                  1.1.5 5р дэс (V) Шадар сайд / Хааны зөвлөх
+                </p>
+                <p class="level-2">1.1.6 6р дэс (VI) Marquess / Marchioness</p>
+                <p class="level-2">1.1.7 7р дэс (VII) Яамдын сайд / Шүүгч</p>
+                <p class="level-2">1.1.8 8р дэс (VIII) Count / Countess</p>
+                <p class="level-2">1.1.9 9р дэс (IX) Honoured members</p>
+                <p class="level-2">1.1.10 10р дэс (X) Vicount / Vicountess</p>
+                <p class="level-2">1.1.11 11р дэс (XI) Шүүхийн зөвлөх</p>
+                <p class="level-2">1.1.12 12р дэс (XII) Baron / Baroness</p>
+                <p class="level-2">1.1.13 13р дэс (XII) Baronet / Baronetess</p>
+                <p class="level-2">1.1.14 14р дэс (XIV) Төрийн албан хаагч</p>
+                <p class="level-2">1.1.15 15р дэс (XV) Lord / Lady</p>
+
+                <p>
+                  1.2. III болон түүнээс дээш дэсэд хамаарагдах иргэд ихэс
+                  дээдэс болно.
+                </p>
+                <p>
+                  1.3. VI болон түүнээс дээш дэсэд хамаарагдах иргэд дээд
+                  язгууртан болно.
+                </p>
+                <p>
+                  1.4. X болон түүнээс дээш дэсэд хамаарагдах иргэд язгууртан
+                  болно.
+                </p>
+                <p>
+                  1.5. XIII болон түүнээс дээш дэсэд хамаарагдах иргэд хагас
+                  язгууртан болно.
+                </p>
+                <p>1.6. XIV болон XV дэсийн иргэд эгэл ард болно.</p>
+              </div>
+            </section>
+
+            <section class="law-section">
+              <div class="law-document-heading">
+                <span>CHAPTER V</span>
+                <h2>ТАВДУГААР БҮЛЭГ — ЭЦСИЙН ЗААЛТ</h2>
+              </div>
+
+              <div class="law-article">
+                <h3>7 дугаар зүйл. Хууль хүчин төгөлдөр болох</h3>
+                <p>
+                  7.1. Энэхүү Үндсэн хууль нь хаант улсын эрх бүхий удирдлагаар
+                  батлагдсан өдрөөс хүчин төгөлдөр болно.
+                </p>
+              </div>
+            </section>
+
+            <!-- ЗАРЛИГИЙН ХЭСЭГ -->
+            <div class="law-decree">
+              <h3>ХААНЫ ЗАРЛИГ</h3>
+
+              <p>
+                Баримт бичгийн дугаар: EV-001<br />
+                Баталсан огноо: 2026 он<br />
+                Баримт бичгийн төлөв: ROLEPLAY ЖИШИГ
+              </p>
+
+              <div class="law-signature">♛ EVERELLIS DE VALMONT</div>
+
+              <p>ХААНЫ ТАМГА, ГАРЫН ҮСГИЙН ХЭСЭГ</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="law-back">
+          <a href="laws.html">← БҮХ ХУУЛЬ</a>
+          <a href="index.html">НҮҮР ХУУДАС</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>© 2026 <span>EVERELLIS DE VALMONT</span></div>
+      <div>ХААНЫ ХУУЛЬ ТОГТООМЖ</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/law.js"></script>
+  </body>
+</html>
