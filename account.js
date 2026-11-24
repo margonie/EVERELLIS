@@ -2274,3 +2274,18 @@ function cancelEventEdit() {
   document.getElementById("eventForm").reset();
   document.getElementById("eventEditId").value = "";
 }
+const starContainer = document.querySelector(".floating-stars");
+
+for (let i = 0; i < 45; i++) {
+  const star = document.createElement("span");
+
+  star.className = "star";
+  star.innerHTML = "✦";
+
+  star.style.left = Math.random() * 100 + "%";
+  star.style.animationDuration = 8 + Math.random() * 12 + "s";
+  star.style.animationDelay = Math.random() * 15 + "s";
+  star.style.fontSize = 6 + Math.random() * 12 + "px";
+
+  starContainer.appendChild(star);
+}
