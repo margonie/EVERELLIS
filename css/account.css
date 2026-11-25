@@ -338,3 +338,24 @@
     opacity: 0;
   }
 }
+#deleteChapterBtn {
+  width: 100%;
+  padding: 13px;
+  margin-top: 12px;
+  background: rgba(150, 35, 35, 0.15);
+  border: 1px solid #a94444;
+  color: #e58b8b;
+  font-family: "Cinzel", serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#deleteChapterBtn:hover {
+  background: #8b2929;
+  color: white;
+}
+
+#deleteChapterBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

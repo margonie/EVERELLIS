@@ -1742,6 +1742,92 @@ async function renderAdminLaws() {
   await renderAdminChapters();
 }
 
+// =====================================
+// DELETE SELECTED LAW CHAPTER
+// =====================================
+
+// УСТГАХ ТОВЧ ҮҮСГЭХ
+function addDeleteChapterButton() {
+  const select = document.getElementById("adminChapterSelect");
+
+  if (!select) return;
+
+  let button = document.getElementById("deleteChapterBtn");
+
+  if (!button) {
+    button = document.createElement("button");
+    button.id = "deleteChapterBtn";
+    button.type = "button";
+    button.className = "danger-button";
+    button.textContent = "СОНГОСОН БҮЛГИЙГ УСТГАХ";
+
+    button.style.display = "block";
+    button.style.marginTop = "12px";
+
+    button.addEventListener("click", deleteSelectedLawChapter);
+
+    select.insertAdjacentElement("afterend", button);
+  }
+
+  button.disabled = !selectedChapterId;
+}
+
+// СОНГОСОН БҮЛЭГ УСТГАХ
+async function deleteSelectedLawChapter() {
+  try {
+    if (!(await isLawAdmin())) {
+      showNotification("Админы эрх шаардлагатай.", "error");
+      return;
+    }
+
+    if (!selectedLawId || !selectedChapterId) {
+      showNotification("Эхлээд бүлэг сонгоно уу.", "error");
+      return;
+    }
+
+    const chapterId = selectedChapterId;
+    const select = document.getElementById("adminChapterSelect");
+
+    const chapterName =
+      select.options[select.selectedIndex]?.textContent || "Сонгосон бүлэг";
+
+    const confirmed = confirm(
+      `"${chapterName}" бүлгийг устгах уу?\n\n` +
+        "АНХААРУУЛГА: Энэ бүлгийн бүх зүйл хамт устгагдана. " +
+        "Энэ үйлдлийг буцаах боломжгүй.",
+    );
+
+    if (!confirmed) return;
+
+    // 1. Тухайн бүлгийн зүйлүүдийг устгах
+    const { error: articleError } = await supabaseClient
+      .from("law_articles")
+      .delete()
+      .eq("chapter_id", chapterId);
+
+    if (articleError) throw articleError;
+
+    // 2. Бүлгийг устгах
+    const { error: chapterError } = await supabaseClient
+      .from("law_chapters")
+      .delete()
+      .eq("id", chapterId)
+      .eq("law_id", selectedLawId);
+
+    if (chapterError) throw chapterError;
+
+    selectedChapterId = null;
+
+    showNotification("Бүлэг амжилттай устгагдлаа.", "success");
+
+    await renderAdminChapters();
+  } catch (error) {
+    console.error("Delete chapter error:", error);
+
+    showNotification(error.message || "Бүлэг устгахад алдаа гарлаа.", "error");
+  }
+}
+
 // LOAD CHAPTERS
 
 async function renderAdminChapters() {
@@ -1749,6 +1835,8 @@ async function renderAdminChapters() {
   const articleList = document.getElementById("adminLawArticleList");
 
   if (!selectedLawId || !select) return;
+
+  addDeleteChapterButton();
 
   const { data, error } = await supabaseClient
     .from("law_chapters")
@@ -1783,6 +1871,7 @@ async function renderAdminChapters() {
   });
 
   selectedChapterId = Number(select.value);
+  addDeleteChapterButton();
 
   // Бүлэг солих үед тухайн бүлгийн зүйлүүдийг харуулах
   select.onchange = async function () {
