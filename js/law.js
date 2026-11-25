@@ -37,14 +37,21 @@ function showLawChapter(index, button) {
 }
 
 // Гар утасны бүлгийн цэс
+// ХУУЛИЙН БҮЛГИЙН ЦЭС НЭЭХ / ХААХ
 function toggleLawMenu() {
   const sidebar = document.querySelector(".law-sidebar");
+  const nav = document.getElementById("lawChapterNav");
   const arrow = document.getElementById("lawArrow");
 
-  if (!sidebar || !arrow) return;
+  if (!sidebar || !nav) return;
 
-  const isOpen = sidebar.classList.toggle("open");
-  arrow.textContent = isOpen ? "−" : "＋";
+  const isOpen = nav.classList.toggle("visible");
+
+  sidebar.classList.toggle("open", isOpen);
+
+  if (arrow) {
+    arrow.textContent = isOpen ? "−" : "＋";
+  }
 }
 
 // =====================================
@@ -182,18 +189,3 @@ async function loadLawPage() {
 document.addEventListener("DOMContentLoaded", () => {
   loadLawPage();
 });
-const starContainer = document.querySelector(".floating-stars");
-
-for (let i = 0; i < 45; i++) {
-  const star = document.createElement("span");
-
-  star.className = "star";
-  star.innerHTML = "✦";
-
-  star.style.left = Math.random() * 100 + "%";
-  star.style.animationDuration = 8 + Math.random() * 12 + "s";
-  star.style.animationDelay = Math.random() * 15 + "s";
-  star.style.fontSize = 6 + Math.random() * 12 + "px";
-
-  starContainer.appendChild(star);
-}
