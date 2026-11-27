@@ -216,6 +216,59 @@
             <p class="muted">Дансны үлдэгдэл</p>
             <h2 id="myBalance" class="gold-text"></h2>
           </div>
+
+          <!-- МӨНГӨ ШИЛЖҮҮЛЭХ -->
+          <div class="panel">
+            <h2 class="gold-text">МӨНГӨ ШИЛЖҮҮЛЭХ</h2>
+            <p class="description">
+              EVERELLIS-ийн бүртгэлтэй иргэн рүү VD шилжүүлэх
+            </p>
+
+            <form id="transferForm" onsubmit="transferFunds(event)">
+              <div class="field">
+                <label for="transferAccount"
+                  >Хүлээн авагчийн дансны дугаар</label
+                >
+                <input
+                  id="transferAccount"
+                  type="text"
+                  placeholder="Дансны дугаар"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="transferAmount">Шилжүүлэх дүн (VD)</label>
+                <input
+                  id="transferAmount"
+                  type="number"
+                  min="0.01"
+                  step="0.01"
+                  placeholder="Жишээ: 100"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="transferDescription">Гүйлгээний утга</label>
+                <textarea
+                  id="transferDescription"
+                  maxlength="200"
+                  placeholder="Гүйлгээний утгаа бичнэ үү..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="transferButton"
+                class="gold-button account-button"
+              >
+                ШИЛЖҮҮЛЭХ
+              </button>
+            </form>
+          </div>
+
           <div class="panel">
             <div id="myStatement"></div>
           </div>

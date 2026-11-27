@@ -411,6 +411,7 @@ async function renderDashboard() {
     const fields = [
       ["Овог", citizen.surname],
       ["Нэр", citizen.name],
+
       ["Хот", citizen.city],
       ["Өргөө", citizen.house],
       ["Цол", citizen.tsol],
@@ -890,8 +891,8 @@ async function adminEdit(id) {
 
   const albantushaal = prompt("Албан тушаал:", c.albantushaal || "");
   if (albantushaal === null) return;
-  const accountNumber = prompt("Дансны дугаар:", c.account_number || "");
-  if (accountNumber === null) return;
+  const account_number = prompt("Данс:", c.account_number || "");
+  if (account_number === null) return;
 
   const { error: updateError } = await supabaseClient
     .from("citizens")
@@ -904,7 +905,7 @@ async function adminEdit(id) {
       house: house.trim(),
       tsol: tsol.trim(),
       albantushaal: albantushaal.trim(),
-      account_number: accountNumber.trim(),
+      account_number: account_number.trim(),
     })
     .eq("id", id);
 
@@ -1742,92 +1743,6 @@ async function renderAdminLaws() {
   await renderAdminChapters();
 }
 
-// =====================================
-// DELETE SELECTED LAW CHAPTER
-// =====================================
-
-// УСТГАХ ТОВЧ ҮҮСГЭХ
-function addDeleteChapterButton() {
-  const select = document.getElementById("adminChapterSelect");
-
-  if (!select) return;
-
-  let button = document.getElementById("deleteChapterBtn");
-
-  if (!button) {
-    button = document.createElement("button");
-    button.id = "deleteChapterBtn";
-    button.type = "button";
-    button.className = "danger-button";
-    button.textContent = "СОНГОСОН БҮЛГИЙГ УСТГАХ";
-
-    button.style.display = "block";
-    button.style.marginTop = "12px";
-
-    button.addEventListener("click", deleteSelectedLawChapter);
-
-    select.insertAdjacentElement("afterend", button);
-  }
-
-  button.disabled = !selectedChapterId;
-}
-
-// СОНГОСОН БҮЛЭГ УСТГАХ
-async function deleteSelectedLawChapter() {
-  try {
-    if (!(await isLawAdmin())) {
-      showNotification("Админы эрх шаардлагатай.", "error");
-      return;
-    }
-
-    if (!selectedLawId || !selectedChapterId) {
-      showNotification("Эхлээд бүлэг сонгоно уу.", "error");
-      return;
-    }
-
-    const chapterId = selectedChapterId;
-    const select = document.getElementById("adminChapterSelect");
-
-    const chapterName =
-      select.options[select.selectedIndex]?.textContent || "Сонгосон бүлэг";
-
-    const confirmed = confirm(
-      `"${chapterName}" бүлгийг устгах уу?\n\n` +
-        "АНХААРУУЛГА: Энэ бүлгийн бүх зүйл хамт устгагдана. " +
-        "Энэ үйлдлийг буцаах боломжгүй.",
-    );
-
-    if (!confirmed) return;
-
-    // 1. Тухайн бүлгийн зүйлүүдийг устгах
-    const { error: articleError } = await supabaseClient
-      .from("law_articles")
-      .delete()
-      .eq("chapter_id", chapterId);
-
-    if (articleError) throw articleError;
-
-    // 2. Бүлгийг устгах
-    const { error: chapterError } = await supabaseClient
-      .from("law_chapters")
-      .delete()
-      .eq("id", chapterId)
-      .eq("law_id", selectedLawId);
-
-    if (chapterError) throw chapterError;
-
-    selectedChapterId = null;
-
-    showNotification("Бүлэг амжилттай устгагдлаа.", "success");
-
-    await renderAdminChapters();
-  } catch (error) {
-    console.error("Delete chapter error:", error);
-
-    showNotification(error.message || "Бүлэг устгахад алдаа гарлаа.", "error");
-  }
-}
-
 // LOAD CHAPTERS
 
 async function renderAdminChapters() {
@@ -1835,8 +1750,6 @@ async function renderAdminChapters() {
   const articleList = document.getElementById("adminLawArticleList");
 
   if (!selectedLawId || !select) return;
-
-  addDeleteChapterButton();
 
   const { data, error } = await supabaseClient
     .from("law_chapters")
@@ -1871,7 +1784,6 @@ async function renderAdminChapters() {
   });
 
   selectedChapterId = Number(select.value);
-  addDeleteChapterButton();
 
   // Бүлэг солих үед тухайн бүлгийн зүйлүүдийг харуулах
   select.onchange = async function () {
@@ -2363,18 +2275,85 @@ function cancelEventEdit() {
   document.getElementById("eventForm").reset();
   document.getElementById("eventEditId").value = "";
 }
-const starContainer = document.querySelector(".floating-stars");
 
-for (let i = 0; i < 45; i++) {
-  const star = document.createElement("span");
+// ===================================
+// CITIZEN MONEY TRANSFER
+// ===================================
 
-  star.className = "star";
-  star.innerHTML = "✦";
+async function transferFunds(event) {
+  event.preventDefault();
 
-  star.style.left = Math.random() * 100 + "%";
-  star.style.animationDuration = 8 + Math.random() * 12 + "s";
-  star.style.animationDelay = Math.random() * 15 + "s";
-  star.style.fontSize = 6 + Math.random() * 12 + "px";
+  if (!currentUser || currentUser.status !== "approved") {
+    showNotification("Та эхлээд нэвтэрнэ үү.", "error");
+    return;
+  }
 
-  starContainer.appendChild(star);
+  const accountNumber = document.getElementById("transferAccount").value.trim();
+
+  const amount = Number(document.getElementById("transferAmount").value);
+
+  const description = document
+    .getElementById("transferDescription")
+    .value.trim();
+
+  const button = document.getElementById("transferButton");
+
+  if (!accountNumber || !description) {
+    showNotification("Бүх талбарыг бөглөнө үү.", "error");
+    return;
+  }
+
+  if (!Number.isFinite(amount) || amount <= 0) {
+    showNotification("Шилжүүлэх дүн буруу байна.", "error");
+    return;
+  }
+
+  if (description.length > 200) {
+    showNotification(
+      "Гүйлгээний утга 200 тэмдэгтээс хэтэрч болохгүй.",
+      "error",
+    );
+    return;
+  }
+
+  if (
+    !confirm(
+      `${amount.toLocaleString("en-US")} VD-г ${accountNumber} данс руу шилжүүлэх үү?`,
+    )
+  ) {
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "ШИЛЖҮҮЛЖ БАЙНА...";
+
+  try {
+    const { data, error } = await supabaseClient.rpc("transfer_funds", {
+      p_recipient_account_number: accountNumber,
+      p_amount: amount,
+      p_description: description,
+    });
+
+    if (error) throw error;
+
+    if (!data || data.success !== true) {
+      throw new Error(data?.message || "Шилжүүлэг амжилтгүй боллоо.");
+    }
+
+    document.getElementById("transferForm").reset();
+
+    showNotification("Шилжүүлэг амжилттай хийгдлээ!", "success");
+
+    await renderDashboard();
+  } catch (error) {
+    console.error("Transfer error:", error);
+
+    showNotification(
+      error.message || "Шилжүүлэг хийхэд алдаа гарлаа.",
+      "error",
+    );
+  } finally {
+    button.disabled = false;
+    button.textContent = "ШИЛЖҮҮЛЭХ";
+  }
 }
